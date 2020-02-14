@@ -1,13 +1,18 @@
-package Introduction;
+package Introduction.HW;
 
 public class Triangle {
     public static void main(String[] args)
     {
-        int x = 1;
-        while(x < 10)
+       drawTriangle(10);
+    }
+
+    public static void drawTriangle(int N)
+    {
+        int x = 0;
+        while(x < N)
         {
             int startp = 0;
-            while (startp < x)
+            while (startp <= x)
             {
                 System.out.print("*");
                 startp ++;

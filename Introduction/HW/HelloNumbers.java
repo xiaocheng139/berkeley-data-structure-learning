@@ -1,4 +1,4 @@
-package Introduction;
+package Introduction.HW;
 
 public class HelloNumbers {
     public static  void main(String[] args)
