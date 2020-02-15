@@ -1,4 +1,4 @@
-package Introduction.HW;
+package Introduction.ClassTime;
 
 public class HelloNumbers {
     public static  void main(String[] args)

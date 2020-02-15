@@ -13,8 +13,13 @@ public class Finonacci {
         }
     }
 
-    public static int fib2(int n, int k, int f1)
+    public static int fib2(int n, int k, int f0, int f1)
     {
-
+        if (n == k) {
+            return f0;
+        }
+        else {
+            return fib2(n, k + 1, f1, f0 + f1);
+        }
     }
 }
