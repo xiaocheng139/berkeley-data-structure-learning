@@ -31,9 +31,9 @@ public class WindowPosSum {
 
     public static void windowPosSumSolution2(int[] a, int n)
     {
-        for (int index = 0; index < a.length; index++)
+        for (int i = 0; i < a.length; i++)
         {
-            if (a[index] < 0)
+            if (a[i] < 0)
             {
                 continue;
             }
@@ -42,13 +42,13 @@ public class WindowPosSum {
                 int sum = 0;
                 for (int j = 0; j <= n; j++)
                 {
-                    if (index + j >= a.length)
+                    if (i + j >= a.length)
                     {
                         break;
                     }
-                    sum += a[index + j];
+                    sum += a[i + j];
                 }
-                a[index] = sum;
+                a[i] = sum;
             }
         }
     }
