@@ -6,35 +6,30 @@ public class Lists1Exercises {
      * to change. */
     public static IntNode incrList(IntNode L, int x) {
         /* Your code here. */
-        if (L == null)
+        if(L == null)
         {
             return null;
         }
-
-        IntNode N  = new IntNode(L.item + x, null);
-
-        N.next = incrList(L.next, x);
+        IntNode N = new IntNode(L.item + x, null);
+        incrList(L.next, x);
         return N;
     }
 
-    public static IntNode incrListIterative(IntNode L, int x)
+
+    public static IntNode incrList2(IntNode L, int x)
     {
-        if (L == null)
-        {
-            return null;
-        }
-
         IntNode N = new IntNode(L.item + x, null);
+        IntNode res = N;
         L = L.next;
-        IntNode pointer = N;
 
-        while (L != null)
+        while(L != null)
         {
-            pointer.next = new IntNode(L.item + x, null);
+            N.next = new IntNode(L.item + x, null);
             L = L.next;
-            pointer = pointer.next;
+            N = N.next;
         }
-        return N;
+
+        return res;
     }
 
     /** Returns an IntNode identical to L, but with
@@ -46,15 +41,20 @@ public class Lists1Exercises {
         {
             return null;
         }
+
+        IntNode N = L;
+
         while (L != null)
         {
             L.item -= x;
             L = L.next;
         }
-        return L;
+
+        return N;
     }
 
-    public static IntNode dincrListRecursive(IntNode L, int x)
+    // Recursive
+    public static IntNode decreList2(IntNode L, int x)
     {
         if (L == null)
         {
@@ -62,8 +62,7 @@ public class Lists1Exercises {
         }
 
         L.item -= x;
-        dincrListRecursive(L.next, x);
-
+        decreList2(L.next, x);
         return L;
     }
 
@@ -79,8 +78,8 @@ public class Lists1Exercises {
         // code for incrList and dincrList into IntNode.java and
         // run it in the visualizer.
          System.out.println(L.get(1));
-         IntNode N = incrListIterative(L, 3);
-         IntNode M = dincrList(L, 3);
+         IntNode N = incrList(L, 3);
+         IntNode M = decreList2(L, 3);
 
          System.out.println(N.get(1));
          System.out.println(M.get(1));
