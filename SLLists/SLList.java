@@ -9,4 +9,14 @@ public class SLList {
     {
         first = new IntNode(x, null);
     }
+
+    public void addFirst(int x)
+    {
+        first = new IntNode(x, null);
+    }
+
+    public int getFirst()
+    {
+        return first.item;
+    }
 }
