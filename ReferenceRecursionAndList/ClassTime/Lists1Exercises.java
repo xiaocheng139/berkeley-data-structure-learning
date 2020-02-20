@@ -15,21 +15,18 @@ public class Lists1Exercises {
         return N;
     }
 
-
-    public static IntNode incrList2(IntNode L, int x)
+    public static IntNode increList2(IntNode L, int x)
     {
-        IntNode N = new IntNode(L.item + x, null);
-        IntNode res = N;
-        L = L.next;
+        IntNode pointer = new IntNode(0, null);
+        IntNode res = pointer;
 
-        while(L != null)
+        while (L != null)
         {
-            N.next = new IntNode(L.item + x, null);
+            pointer.next = new IntNode(L.item + x, null);
+            pointer = pointer.next;
             L = L.next;
-            N = N.next;
         }
-
-        return res;
+        return res.next;
     }
 
     /** Returns an IntNode identical to L, but with
@@ -78,7 +75,7 @@ public class Lists1Exercises {
         // code for incrList and dincrList into IntNode.java and
         // run it in the visualizer.
          System.out.println(L.get(1));
-         IntNode N = incrList(L, 3);
+         IntNode N = increList2(L, 3);
          IntNode M = decreList2(L, 3);
 
          System.out.println(N.get(1));
