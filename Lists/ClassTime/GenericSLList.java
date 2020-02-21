@@ -17,13 +17,13 @@ public class GenericSLList<Whatever>{
     // Create a sentinel node that will link to the first node
     public GenericSLList()
     {
-        sentinel = new StuffNode(0, null); // TODO the code here is wrong, will update later
+        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
         size = 0;
     }
 
     public GenericSLList(Whatever x)
     {
-        sentinel = new StuffNode(0, null); // TODO the code here is wrong, will update later
+        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
         sentinel.next = new StuffNode(x, null);
         size = 1;
     }
