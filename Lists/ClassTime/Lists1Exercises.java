@@ -1,4 +1,6 @@
-package ReferenceRecursionAndList.ClassTime;
+package Lists.ClassTime;
+
+import Lists.ClassTime.IntNode;
 
 public class Lists1Exercises {
     /** Returns an IntNode identical to L, but with

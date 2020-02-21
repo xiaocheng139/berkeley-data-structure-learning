@@ -1,4 +1,4 @@
-package ReferenceRecursionAndList.ClassTime;
+package Lists.ClassTime;
 
 public class IntNode {
 
