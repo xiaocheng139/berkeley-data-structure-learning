@@ -65,6 +65,55 @@ public class Lists1Exercises {
         return L;
     }
 
+    // Recursive
+    public static IntNode square(IntNode L)
+    {
+        if (L == null)
+        {
+            return null;
+        }
+        L.item = L.item * L.item;
+        square(L.next);
+        return L;
+    }
+
+    // Iterative
+    public static IntNode square2(IntNode L)
+    {
+        IntNode sentinel = new IntNode(0, L);
+
+        while (L != null)
+        {
+            L.item = L.item * L.item;
+            L = L.next;
+        }
+        return sentinel.next;
+    }
+
+    // Recursive
+    public static IntNode squareDestructive(IntNode L)
+    {
+        if (L == null)
+        {
+            return null;
+        }
+        return new IntNode(L.item * L.item, squareDestructive(L.next));
+    }
+
+    // Iterative
+    public static IntNode squareDestructive2(IntNode L)
+    {
+        IntNode sentinel = new IntNode(0, null);
+        IntNode N = sentinel;
+        while (L != null)
+        {
+            N.next = new IntNode(L.item * L.item, null);
+            N = N.next;
+            L = L.next;
+        }
+        return sentinel.next;
+    }
+
     public static void main(String[] args) {
         IntNode L = new IntNode(5, null);
         L.next = new IntNode(7, null);
@@ -76,11 +125,13 @@ public class Lists1Exercises {
         // Test your answers by uncommenting. Or copy and paste the
         // code for incrList and dincrList into IntNode.java and
         // run it in the visualizer.
-         System.out.println(L.get(1));
-         IntNode N = increList2(L, 3);
-         IntNode M = decreList2(L, 3);
+        System.out.println(L.get(1));
+        IntNode N = square(L);
+        IntNode M = square2(L);
+        IntNode O = squareDestructive(L);
+        IntNode P = squareDestructive2(L);
 
-         System.out.println(N.get(1));
-         System.out.println(M.get(1));
+        System.out.println(O.get(1));
+        System.out.println(P.get(1));
     }
 }

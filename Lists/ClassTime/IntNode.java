@@ -70,5 +70,4 @@ public class IntNode {
             return p.item;
         }
     }
-
 }
