@@ -66,7 +66,7 @@ public class Lists1Exercises {
     }
 
     // Recursive
-    public static IntNode square(IntNode L)
+    public static IntNode squareDestructive(IntNode L)
     {
         if (L == null)
         {
@@ -78,7 +78,7 @@ public class Lists1Exercises {
     }
 
     // Iterative
-    public static IntNode square2(IntNode L)
+    public static IntNode squareDestructive2(IntNode L)
     {
         IntNode sentinel = new IntNode(0, L);
 
@@ -91,7 +91,7 @@ public class Lists1Exercises {
     }
 
     // Recursive
-    public static IntNode squareDestructive(IntNode L)
+    public static IntNode square(IntNode L)
     {
         if (L == null)
         {
@@ -101,7 +101,7 @@ public class Lists1Exercises {
     }
 
     // Iterative
-    public static IntNode squareDestructive2(IntNode L)
+    public static IntNode square2(IntNode L)
     {
         IntNode sentinel = new IntNode(0, null);
         IntNode N = sentinel;
