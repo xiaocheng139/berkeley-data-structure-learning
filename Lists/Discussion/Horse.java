@@ -1,7 +1,7 @@
 package Lists.Discussion;
 
 public class Horse {
-
+    //TODO very difficult to understand, left for the future
     Horse same;
     String jimmy;
 
