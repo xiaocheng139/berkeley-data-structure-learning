@@ -6,22 +6,25 @@ public class AList  {
 
     /** Creates an empty list. */
     public AList() {
-        items = new int[0];
+        items = new int[100];
         size = 0;
     }
 
     /** Resizes the underlying array to the target capacity. */
     private void resize(int capacity) {
-        int[] new_items = new int[capacity];
-        System.arraycopy(items, 0, new_items, 0, Math.min(capacity, size));
-        items = new_items;
-        size = capacity;
+        int[] newItems = new int[capacity];
+        System.arraycopy(items, 0, newItems, 0, size);
+        items = newItems;
     }
 
     /** Inserts X into the back of the list. */
     public void addLast(int x) {
-        resize(size + 1);
-        items[size - 1] = x;
+        if (size == items.length)
+        {
+            resize(size + 1);
+        }
+        items[size] = x;
+        size += 1;
     }
 
     /** Returns the item from the back of the list. */
