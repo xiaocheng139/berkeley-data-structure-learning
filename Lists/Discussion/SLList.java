@@ -43,16 +43,17 @@ public class SLList {
             return;
         }
 
-        IntNode currentNode = first.next;
-        first.next = null;
+        IntNode preNode = null;
+        IntNode currentNode = first;
 
         while (currentNode != null)
         {
             IntNode temp = currentNode.next;
-            currentNode.next = first;
-            first = currentNode;
+            currentNode.next = preNode;
+            preNode = currentNode;
             currentNode = temp;
         }
+        first = preNode;
     }
 
     public static void main(String[] args) {
