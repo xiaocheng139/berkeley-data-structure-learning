@@ -56,13 +56,35 @@ public class SLList {
         first = preNode;
     }
 
+    public void reverseRecursive()
+    {
+        if (first == null || first.next == null)
+        {
+            return;
+        }
+        first = reverseRecursiveHelper(first);
+    }
+
+    public IntNode reverseRecursiveHelper(IntNode first)
+    {
+        if (first == null || first.next == null)
+        {
+            return first;
+        }
+        IntNode restNode = first.next;
+        IntNode reversed = reverseRecursiveHelper(first.next);
+        restNode.next = first;
+        first.next = null;
+        return reversed;
+    }
+
     public static void main(String[] args) {
         SLList exa = new SLList();
         exa.addFirst(1);
         exa.addFirst(2);
         exa.addFirst(5);
         exa.insert(10, 3);
-        exa.reverse();
+        exa.reverseRecursive();
         System.out.println(123);
     }
 }
