@@ -103,6 +103,5 @@ public class Arrays {
     public static void main(String[] args) {
         int[] arr = {1,4,7,12};
         arr = insertDestructively(arr, 8, 3);
-        System.out.println(arr);
     }
 }
