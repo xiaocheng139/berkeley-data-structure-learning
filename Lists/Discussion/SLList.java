@@ -42,26 +42,20 @@ public class SLList {
         {
             return;
         }
-
-        IntNode preNode = null;
-        IntNode currentNode = first;
-
-        while (currentNode != null)
+        IntNode pre = null;
+        IntNode cur = first;
+        while (cur != null)
         {
-            IntNode temp = currentNode.next;
-            currentNode.next = preNode;
-            preNode = currentNode;
-            currentNode = temp;
+            IntNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
-        first = preNode;
+        first = pre;
     }
 
     public void reverseRecursive()
     {
-        if (first == null || first.next == null)
-        {
-            return;
-        }
         first = reverseRecursiveHelper(first);
     }
 
@@ -72,10 +66,10 @@ public class SLList {
             return first;
         }
         IntNode restNode = first.next;
-        IntNode reversed = reverseRecursiveHelper(first.next);
+        IntNode reserved = reverseRecursiveHelper(first.next);
         restNode.next = first;
         first.next = null;
-        return reversed;
+        return reserved;
     }
 
     public static void main(String[] args) {
