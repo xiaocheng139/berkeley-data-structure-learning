@@ -1,4 +1,4 @@
-package Lists.ClassTime;
+package lists.ClassTime;
 
 public class SLListLauncher {
     GenericSLList<Integer> L = new GenericSLList<>();

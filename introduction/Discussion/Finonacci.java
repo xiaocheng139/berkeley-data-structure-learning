@@ -1,4 +1,4 @@
-package Introduction.Discussion;
+package introduction.Discussion;
 
 public class Finonacci {
     public static int fib(int n)

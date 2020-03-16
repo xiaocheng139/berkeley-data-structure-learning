@@ -1,4 +1,4 @@
-package Lists.Discussion;
+package lists.Discussion;
 
 public class SLList {
     private class IntNode {

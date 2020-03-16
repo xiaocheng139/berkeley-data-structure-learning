@@ -1,4 +1,4 @@
-package Introduction.HW;
+package introduction.HW;
 
 public class WindowPosSum {
     public static void main(String[] args) {

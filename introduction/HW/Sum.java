@@ -1,4 +1,4 @@
-package Introduction.HW;
+package introduction.HW;
 
 public class Sum
 {

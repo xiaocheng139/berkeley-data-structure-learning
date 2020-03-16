@@ -1,6 +1,4 @@
-package Lists.ClassTime;
-
-import Lists.ClassTime.IntNode;
+package lists.ClassTime;
 
 public class Lists1Exercises {
     /** Returns an IntNode identical to L, but with
