@@ -1,4 +1,4 @@
-package lists.Discussion;
+package lists.discussion;
 
 public class Arrays {
     public static int[] insert(int[] arr, int item, int position) {

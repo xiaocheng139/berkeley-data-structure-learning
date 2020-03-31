@@ -1,4 +1,4 @@
-package introduction.ClassTime;
+package introduction.classTime;
 
 public class Dog {
     public int weightInPounds;

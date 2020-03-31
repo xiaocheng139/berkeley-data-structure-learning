@@ -1,4 +1,4 @@
-package lists.Discussion;
+package lists.discussion;
 
 public class Shock
 {

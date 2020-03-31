@@ -1,4 +1,4 @@
-package lists.ClassTime;
+package lists.classTime;
 
 public class IntNode {
 

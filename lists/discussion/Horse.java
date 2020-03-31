@@ -1,4 +1,4 @@
-package lists.Discussion;
+package lists.discussion;
 
 public class Horse {
     //TODO very difficult to understand, left for the future

@@ -1,61 +1,61 @@
-package lists.ClassTime;
+package lists.classTime;
 
-public class GenericSLList<Whatever>{
-    private class StuffNode{
+public class SLList {
+    private static class IntNode {
 
-        public Whatever item;
-        public StuffNode next;
+        public int item;
+        public IntNode next;
 
-        public StuffNode(Whatever i, StuffNode n) {
+        public IntNode(int i, IntNode n) {
             item = i;
             next = n;
         }
     }
-    private StuffNode sentinel;
+    private IntNode sentinel;
     private int size;
 
     // Create a sentinel node that will link to the first node
-    public GenericSLList()
+    public  SLList()
     {
-        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
+        sentinel = new IntNode(0, null);
         size = 0;
     }
-
-    public GenericSLList(Whatever x)
+    
+    public SLList(int x)
     {
-        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
-        sentinel.next = new StuffNode(x, null);
+        sentinel = new IntNode(0, null);
+        sentinel.next = new IntNode(x, null);
         size = 1;
     }
 
-    public void addFirst(Whatever x)
+    public void addFirst(int x)
     {
-        sentinel.next = new StuffNode(x, sentinel.next);
+        sentinel.next = new IntNode(x, sentinel.next);
         size += 1;
     }
 
     // Iterative
-    public void addLast(Whatever x)
+    public void addLast(int x)
     {
-        StuffNode p = sentinel;
+        IntNode p = sentinel;
         while (p.next != null)
         {
             p = p.next;
         }
-        p.next = new StuffNode(x, null);
+        p.next = new IntNode(x, null);
         size += 1;
     }
 
     // Recursive
-    public void addLast2(Whatever x)
+    public void addLast2(int x)
     {
-        StuffNode L = addLastHelper(sentinel, x);
-        L.next = new StuffNode(x, null);
+        IntNode L = addLastHelper(sentinel, x);
+        L.next = new IntNode(x, null);
         size += 1;
     }
 
     // This method is to get the last node of current list
-    private StuffNode addLastHelper(StuffNode L, Whatever x)
+    private IntNode addLastHelper(IntNode L, int x)
     {
         if (L.next == null)
         {
@@ -69,7 +69,7 @@ public class GenericSLList<Whatever>{
     public int size()
     {
         int size = 0;
-        StuffNode p = sentinel.next;
+        IntNode p = sentinel.next;
         while (p != null)
         {
             size ++;
@@ -84,7 +84,7 @@ public class GenericSLList<Whatever>{
         return size_helper(sentinel.next);
     }
 
-    private int size_helper(StuffNode p)
+    private int size_helper(IntNode p)
     {
         if (p == null)
         {
@@ -93,7 +93,7 @@ public class GenericSLList<Whatever>{
         return 1 + size_helper(p.next);
     }
 
-    public Whatever getFirst()
+    public int getFirst()
     {
         return sentinel.next.item;
     }
