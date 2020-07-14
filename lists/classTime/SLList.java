@@ -98,11 +98,25 @@ public class SLList {
         return sentinel.next.item;
     }
 
+    public int get(int position)
+    {
+        int index = 0;
+        IntNode p = sentinel.next;
+        while (index < position)
+        {
+            p = p.next;
+            index++;
+        }
+        return p.item;
+    }
+
     public static void main(String[] args) {
         SLList L = new SLList();
         L.addFirst(10);
         L.addFirst(5);
         L.addLast2(3);
+        L.addFirst(1);
+        System.out.println(L.get(0));
         System.out.println(L.size());
         System.out.println(L.getFirst());
     }

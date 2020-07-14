@@ -93,6 +93,18 @@ public class GenericSLList<Whatever>{
         return 1 + size_helper(p.next);
     }
 
+    public Whatever get(int position)
+    {
+        int index = 0;
+        StuffNode p = sentinel.next;
+        while (index < position)
+        {
+            p = p.next;
+            index++;
+        }
+        return p.item;
+    }
+
     public Whatever getFirst()
     {
         return sentinel.next.item;

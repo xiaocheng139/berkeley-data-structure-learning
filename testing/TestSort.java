@@ -1,7 +1,8 @@
 package testing;
 
 public class TestSort {
-    public static void testSort()
+    @org.junit.Test
+    public void testSort()
     {
         String[] input = {"i", "have", "an", "egg"};
         String[] expected = {"an", "egg", "have", "i"};
@@ -30,7 +31,8 @@ public class TestSort {
     }
 
     /** Test the Sort.findSmallest method */
-    public static void testFindSmallest()
+    @org.junit.Test
+    public void testFindSmallest()
     {
         String[] input = {"i", "have", "an", "egg"};
 
@@ -46,7 +48,8 @@ public class TestSort {
     }
 
     /** Test the Sort.swap method */
-    public static void testSwap()
+    @org.junit.Test
+    public void testSwap()
     {
         String[] input = {"i", "have", "an", "egg"};
         int a = 0;
@@ -58,9 +61,9 @@ public class TestSort {
         org.junit.Assert.assertArrayEquals(input, expected);
     }
 
-    public static void main(String[] args) {
-        testSort();
-        testFindSmallest();
-        testSwap();
-    }
+//    public static void main(String[] args) {
+//        testSort();
+//        testFindSmallest();
+//        testSwap();
+//    }
 }
