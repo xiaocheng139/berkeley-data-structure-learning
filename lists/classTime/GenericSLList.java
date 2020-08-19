@@ -1,61 +1,63 @@
 package lists.classTime;
 
-public class GenericSLList<Whatever>{
-    private class StuffNode{
+public class GenericSLList<Whatever> implements List61B<Whatever>{
+    private class Node {
 
         public Whatever item;
-        public StuffNode next;
+        public Node next;
 
-        public StuffNode(Whatever i, StuffNode n) {
+        public Node(Whatever i, Node n) {
             item = i;
             next = n;
         }
     }
-    private StuffNode sentinel;
+    private Node sentinel;
     private int size;
 
     // Create a sentinel node that will link to the first node
     public GenericSLList()
     {
-        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
+        sentinel = new Node(null, null);
         size = 0;
     }
 
     public GenericSLList(Whatever x)
     {
-        sentinel = new StuffNode(null, null); // TODO the code here is wrong, will update later
-        sentinel.next = new StuffNode(x, null);
+        sentinel = new Node(null, null);
+        sentinel.next = new Node(x, null);
         size = 1;
     }
 
+    @Override
     public void addFirst(Whatever x)
     {
-        sentinel.next = new StuffNode(x, sentinel.next);
+        sentinel.next = new Node(x, sentinel.next);
         size += 1;
     }
 
     // Iterative
+    @Override
     public void addLast(Whatever x)
     {
-        StuffNode p = sentinel;
+        Node p = sentinel;
         while (p.next != null)
         {
             p = p.next;
         }
-        p.next = new StuffNode(x, null);
+        p.next = new Node(x, null);
         size += 1;
     }
 
     // Recursive
     public void addLast2(Whatever x)
     {
-        StuffNode L = addLastHelper(sentinel, x);
-        L.next = new StuffNode(x, null);
+        Node L = addLastHelper(sentinel, x);
+        L.next = new Node(x, null);
         size += 1;
     }
 
     // This method is to get the last node of current list
-    private StuffNode addLastHelper(StuffNode L, Whatever x)
+    private Node addLastHelper(Node L, Whatever x)
     {
         if (L.next == null)
         {
@@ -66,10 +68,11 @@ public class GenericSLList<Whatever>{
     }
 
     // Iterative method
+    @Override
     public int size()
     {
         int size = 0;
-        StuffNode p = sentinel.next;
+        Node p = sentinel.next;
         while (p != null)
         {
             size ++;
@@ -84,7 +87,7 @@ public class GenericSLList<Whatever>{
         return size_helper(sentinel.next);
     }
 
-    private int size_helper(StuffNode p)
+    private int size_helper(Node p)
     {
         if (p == null)
         {
@@ -93,10 +96,11 @@ public class GenericSLList<Whatever>{
         return 1 + size_helper(p.next);
     }
 
+    @Override
     public Whatever get(int position)
     {
         int index = 0;
-        StuffNode p = sentinel.next;
+        Node p = sentinel.next;
         while (index < position)
         {
             p = p.next;
@@ -110,11 +114,59 @@ public class GenericSLList<Whatever>{
         return sentinel.next.item;
     }
 
+    public Whatever getLast()
+    {
+        Node p = sentinel;
+        while (p.next != null)
+        {
+            p = p.next;
+        }
+
+        return p.item;
+    }
+
+    @Override
+    public Whatever removeLast()
+    {
+        Node p = sentinel;
+        while (p.next.next != null)
+        {
+            p = p.next;
+        }
+
+        Node lastNode = p.next;
+        p.next = null;
+        return lastNode.item;
+    }
+
+    @Override
+    public void insert(Whatever item, int position)
+    {
+        Node lastBeforePosition = sentinel;
+        for (int idx = 0; idx < position; idx++)
+        {
+            lastBeforePosition = lastBeforePosition.next;
+        }
+        Node firstAfterPosition = lastBeforePosition.next;
+        lastBeforePosition.next = new Node(item, firstAfterPosition);
+    }
+
+    @Override
+    public void print()
+    {
+        System.out.println("The boss doesn't know what he is doing");
+        for (Node p = sentinel.next; p != null; p = p.next)
+        {
+            System.out.print(p.item + " ");
+        }
+    }
+
     public static void main(String[] args) {
-        SLList L = new SLList();
+        GenericSLList<Integer> L = new GenericSLList<>();
         L.addFirst(10);
         L.addFirst(5);
-        L.addLast2(3);
+        L.addLast2(1);
+        L.insert(3, 0);
         System.out.println(L.size());
         System.out.println(L.getFirst());
     }
